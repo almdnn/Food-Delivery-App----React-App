@@ -20,7 +20,7 @@ const Cart = props => {
     };
 
     const cartItemAddHandler = item => {
-        cartCtx.addItem(item);
+        cartCtx.addItem({...item, amount: 1});
     };
 
     const orderHandler = () => {
@@ -29,7 +29,7 @@ const Cart = props => {
 
     const submitOrderHandler = async userData => {
         setIsSubmiting(true);
-       await fetch('https://foodapp-d57f0-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
+       await fetch('https://deliveryfood-61b35-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
            method: 'POST',
            body: JSON.stringify({
                user: userData,
@@ -48,7 +48,7 @@ const Cart = props => {
     amount={item.amount}
     price={item.price}
     onRemove={cartItemRemoveHandler.bind(null, item.id)} 
-    odAdd={cartItemAddHandler.bind(null, item)}/>)}</ul>
+    onAdd={cartItemAddHandler.bind(null, item)}/>)}</ul>
 
     const cartModalContent =  <React.Fragment> {cartItems}
     <div className={classes.total}>

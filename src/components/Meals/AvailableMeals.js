@@ -11,7 +11,7 @@ const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchedMeals = async () => {
-      const response = await fetch('https://foodapp-d57f0-default-rtdb.europe-west1.firebasedatabase.app/meals.json');
+      const response = await fetch('https://deliveryfood-61b35-default-rtdb.europe-west1.firebasedatabase.app//meals.json');
       const responseData = await response.json();
       
       const loadedMeals = [];
